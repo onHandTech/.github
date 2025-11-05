@@ -1,0 +1,41 @@
+name: Bug ticket
+title: 'Bug: '
+description: Create new Bug ticket
+labels: ['NEW!']
+type: 'Bug'
+projects: ['onHandTech/5']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the sections below to help everyone understand the spike.
+        Markdown styling info: [GitHub Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings)
+
+        > [!IMPORTANT]
+        > Do not forget to add specific labels! This will help us to categorize the ticket and prioritize it accordingly.
+  - type: dropdown
+    id: priority
+    validations:
+      required: true
+    attributes:
+      label: Priority
+      description: What is the priority of this issue?
+      options:
+        - label: P1
+        - label: P2
+        - label: P3
+        - label: P4
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction steps
+      placeholder: What's the general steps to reproduce the issue?
+  - type: input
+    id: documentation
+    attributes:
+      label: Documentation link
+      placeholder: Link to the documentation if needed
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes

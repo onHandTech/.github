@@ -1,0 +1,49 @@
+name: Ticket template
+description: Create a ticket to help us improve
+labels: ['NEW!']
+type: 'Task'
+projects: ['onHandTech/5']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please fill out the sections below.
+        Markdown styling info: [GitHub Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings)
+
+        > [!IMPORTANT]
+        > Do not forget to add specific labels! This will help us to categorize the ticket and prioritize it accordingly.
+  - type: textarea
+    id: background
+    attributes:
+      label: Background (optional)
+      placeholder: A clear and concise description of what the feature is about.
+  - type: textarea
+    id: ask
+    attributes:
+      label: Ask
+      placeholder: What do you need from the team?
+  - type: textarea
+    id: story
+    attributes:
+      label: User story
+      placeholder: |
+        As a
+        I want to
+        So that
+  - type: textarea
+    id: ac
+    attributes:
+      label: Acceptance criteria
+      placeholder: |
+        Given
+        When
+        Then
+  - type: input
+    id: design
+    attributes:
+      label: Design link (optional)
+      placeholder: 🎨 Link to design in Figma if applicable
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional notes/screenshots/recordings (optional)
