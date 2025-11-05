@@ -1,7 +1,7 @@
 ### Description:
 
-### Jira Ticket
+### Github issue:
 
-### Screenshots
+### Screenshots:
 
 ![Replace with a screenshot of your changes]()
