@@ -1,34 +1,95 @@
-name: Spike ticket
-title: 'Spike: '
-description: Create new Spike ticket
-labels: ['NEW!', 'Spike']
-type: 'Feature'
-projects: ['onHandTech/5']
+name: Spike Ticket
+title: "Spike: "
+description: Create a spike for research and investigation
+labels: ["spike"]
+type: "Feature"
+projects: ["onHandTech/5"]
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill out the sections below to help everyone understand the spike.
-        Markdown styling info: [GitHub Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings)
+        ## Spike Ticket
+
+        Use this template for time-boxed research and investigation tasks.
+
+        **Formatting help**: [GitHub Markdown Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
         > [!IMPORTANT]
-        > Do not forget to add specific labels! This will help us to categorize the ticket and prioritize it accordingly.
+        > Don't forget to add specific labels (e.g., `onhand-web`, `onhand-native`, `research`) to categorize this ticket!
+
+  - type: dropdown
+    id: affected_repo
+    attributes:
+      label: Affected Repository/Area
+      description: Which repository or area does this spike relate to?
+      options:
+        - onhand-web
+        - onhand-native
+        - onhand-backend
+        - onhand-admin
+        - onhand-toolkit
+        - onhand-fe-shared
+        - Architecture/Infrastructure
+        - Cross-cutting concern
+
   - type: textarea
     id: context
     attributes:
-      label: Context
-      placeholder: What's the general context of the spike
+      label: Context & Background
+      description: What's the context for this spike?
+      placeholder: |
+        Provide background information about why this investigation is needed.
+        What problem are we trying to understand better?
+
   - type: textarea
-    id: testissue
+    id: objectives
     attributes:
-      label: What we're looking for
-      placeholder: What we're looking for in this spike
+      label: Spike Objectives
+      description: What are we looking to learn or discover?
+      placeholder: |
+        - Evaluate technology X for use case Y
+        - Research best practices for Z
+        - Investigate performance bottleneck in...
+        - Assess feasibility of...
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: Key Questions to Answer
+      description: Specific questions this spike should address
+      placeholder: |
+        1. How does X integrate with our current stack?
+        2. What are the performance implications?
+        3. What are the trade-offs?
+
+  - type: input
+    id: timebox
+    attributes:
+      label: Time Box
+      description: Maximum time allocated for this spike
+      placeholder: e.g., 2 days, 1 sprint, 8 hours
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Expected Deliverables
+      description: What should be produced at the end of this spike?
+      placeholder: |
+        - Technical document outlining findings
+        - POC/prototype demonstrating feasibility
+        - Recommendation document with pros/cons
+        - Architecture diagram
+
   - type: input
     id: documentation
     attributes:
-      label: Documentation link
-      placeholder: Link to the documentation if needed
+      label: Related Documentation/Links
+      description: Links to relevant docs, ADRs, Figma designs, etc.
+      placeholder: https://...
+
   - type: textarea
     id: notes
     attributes:
-      label: Additional notes
+      label: Additional Notes
+      description: Any other relevant information or constraints
+      placeholder: Dependencies, assumptions, constraints...
