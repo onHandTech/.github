@@ -1,30 +1,125 @@
 name: Tech Ticket
-description: Create new Tech ticket
-labels: ['NEW!', 'Tech']
-projects: ['onHandTech/5']
+title: "Tech: "
+description: Create a technical task or improvement ticket
+labels: ["tech"]
+type: "Task"
+projects: ["onHandTech/5"]
 body:
   - type: markdown
     attributes:
       value: |
-        Please fill out the sections below to help everyone understand the tech ticket.
-        Markdown styling info: [GitHub Documentation](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#headings)
+        ## Technical Ticket
+
+        Use this template for technical improvements, refactoring, tech debt, or infrastructure work.
+
+        **Formatting help**: [GitHub Markdown Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
         > [!IMPORTANT]
-        > Do not forget to add specific labels! This will help us to categorize the ticket and prioritize it accordingly.
+        > Don't forget to add specific labels (e.g., `tech-debt`, `refactor`, `infrastructure`, `onhand-backend`) to categorize this ticket!
+
+  - type: dropdown
+    id: affected_repo
+    attributes:
+      label: Affected Repository
+      description: Which repository does this tech work relate to?
+      options:
+        - onhand-web
+        - onhand-native
+        - onhand-backend
+        - onhand-admin
+        - onhand-toolkit
+        - onhand-fe-shared
+        - Infrastructure/DevOps
+        - Multiple repositories
+
+  - type: dropdown
+    id: tech_type
+    attributes:
+      label: Type of Technical Work
+      description: What category does this work fall into?
+      options:
+        - Tech Debt
+        - Refactoring
+        - Performance Optimization
+        - Infrastructure/DevOps
+        - Security
+        - Testing/Quality
+        - Tooling/DX
+        - Dependency Updates
+        - Documentation
+
   - type: textarea
     id: problem
-    validations:
-      required: true
     attributes:
-      label: Problem
-      placeholder: What is the problem we're trying to solve?
+      label: Problem Statement
+      description: What technical problem are we solving?
+      placeholder: |
+        Describe the current state and why it needs improvement.
+        What pain points does this address?
+
   - type: textarea
-    id: context
+    id: solution
     attributes:
-      label: Potential Solution
-      placeholder: What is the potential solution?
+      label: Proposed Solution
+      description: How do we plan to solve this?
+      placeholder: |
+        Describe the technical approach.
+        What will be changed/improved?
+
+  - type: textarea
+    id: benefits
+    attributes:
+      label: Benefits & Impact
+      description: Why is this work valuable?
+      placeholder: |
+        - Improved performance (specify metrics if possible)
+        - Better developer experience
+        - Reduced maintenance burden
+        - Enhanced security
+        - Better code quality/maintainability
+
+  - type: textarea
+    id: acceptance_criteria
+    attributes:
+      label: Acceptance Criteria
+      description: How do we know when this is done?
+      placeholder: |
+        - [ ] Criterion 1
+        - [ ] Criterion 2
+        - [ ] Tests updated/added
+        - [ ] Documentation updated
+
+  - type: textarea
+    id: technical_notes
+    attributes:
+      label: Technical Notes
+      description: Implementation details, architectural considerations, or constraints
+      placeholder: |
+        - Files/modules to modify
+        - Breaking changes
+        - Migration steps needed
+        - Performance considerations
+
+  - type: textarea
+    id: dependencies
+    attributes:
+      label: Dependencies & Blockers
+      description: What needs to happen before this work can be completed?
+      placeholder: |
+        - Blocked by: #123
+        - Depends on: Feature X being deployed
+        - Requires: Access to Y
+
+  - type: input
+    id: documentation
+    attributes:
+      label: Related Links
+      description: Links to ADRs, RFCs, documentation, or related issues
+      placeholder: https://...
+
   - type: textarea
     id: notes
     attributes:
-      label: Additional notes, dependencies or blockers
-      description: Any additional notes, dependencies or blockers that you want to share
+      label: Additional Context
+      description: Any other relevant information
+      placeholder: Related discussions, alternative approaches considered, etc.
