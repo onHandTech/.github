@@ -1,31 +1,33 @@
-## Type: Feature
-**Features** typically represent new functionality or capabilities that add value to the end user. They are:
-- User-facing enhancements
-- New capabilities or modules
-- Significant additions to the product
-- Often larger in scope and may require multiple tasks to complete
+# Welcome to OnHand 👋
 
-**Example use cases:**
-- "Add user authentication system"
-- "Implement real-time notifications"
-- "Create dashboard analytics view"
+## About Us
 
-## Type: Task
-**Tasks** are typically more granular work items that support features or represent specific, discrete pieces of work. They are:
-- Implementation-focused activities
-- Can be standalone maintenance work
-- Often smaller and more focused in scope
-- May be subtasks that contribute to a larger feature
+A social and environmental impact platform that helps companies meet their corporate social responsibility (CSR) goals by engaging their employees in volunteering and sustainable activities.
 
-**Example use cases:**
-- "Update dependencies to latest versions"
-- "Refactor authentication helper functions"
-- "Write unit tests for dashboard component"
-- "Fix styling on mobile navigation"
+## 🚀 Our Projects
 
-## Best Practices
-- Use **feature** for user-visible enhancements that deliver new capabilities
-- Use **task** for technical work items, subtasks, or maintenance activities
-- Features can be broken down into multiple tasks
-- Tasks should be completable independently and have clear acceptance criteria
+Explore our repositories to discover the projects we're working on. Each repository contains detailed documentation to help you get started.
 
+## 🤝 Contributing
+
+We welcome contributions from the community! Here's how you can get involved:
+
+1. **Create** a new branch for your feature (`git checkout -b feature/amazing-feature`)
+2. **Commit** your changes (`git commit -m 'Add some amazing feature'`)
+3. **Push** to the branch (`git push origin feature/amazing-feature`)
+4. **Open** a Pull Request
+
+Please make sure to:
+- Follow our coding standards
+- Write clear commit messages
+- Add tests for new features
+- Update documentation as needed
+
+## 📫 Get in Touch
+
+- Create an issue in the relevant repository
+- Reach out to our maintainers
+
+---
+
+*Built with ❤️ by the OnHand team*
