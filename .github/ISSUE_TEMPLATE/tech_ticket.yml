@@ -1,7 +1,7 @@
 name: Tech Ticket
 title: "Tech: "
 description: Create a technical task or improvement ticket
-labels: ["tech"]
+labels: ["tech-debt"]
 type: "Task"
 projects: ["onHandTech/5"]
 body:
