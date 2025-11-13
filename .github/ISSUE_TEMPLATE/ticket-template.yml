@@ -8,110 +8,20 @@ body:
     attributes:
       value: |
         ## Feature/Task Ticket
-
-        Use this template for feature requests, user stories, or general development tasks.
+        For feature requests, user stories, or general development tasks.
 
         **Formatting help**: [GitHub Markdown Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-        > [!IMPORTANT]
-        > Don't forget to add specific labels (e.g., `feature`, `enhancement`, `onhand-web`) to categorize this ticket!
-
-  - type: dropdown
-    id: affected_repo
-    attributes:
-      label: Affected Repository
-      description: Which repository will this work be done in?
-      options:
-        - onhand-web
-        - onhand-native
-        - onhand-backend
-        - onhand-admin
-        - onhand-toolkit
-        - onhand-fe-shared
-        - Multiple repositories
-
   - type: textarea
-    id: background
+    id: description
     attributes:
-      label: Background & Context
-      description: Background information about this feature or task
-      placeholder: |
-        Provide context about why this work is needed.
-        Link to any relevant discussions, user feedback, or business requirements.
-
-  - type: textarea
-    id: story
-    attributes:
-      label: User Story
-      description: Describe the feature from the user's perspective
-      placeholder: |
-        As a [type of user]
-        I want to [action/goal]
-        So that [benefit/value]
-
-  - type: textarea
-    id: requirements
-    attributes:
-      label: Requirements & Scope
-      description: What needs to be built or accomplished?
-      placeholder: |
-        List the key requirements and scope of work.
-        What should be included? What's explicitly out of scope?
+      label: What needs to be built?
+      placeholder: Describe the feature or task and why it's needed
 
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Acceptance Criteria
-      description: How do we know when this is complete?
       placeholder: |
-        Given [context/precondition]
-        When [action/event]
-        Then [expected outcome]
-
-        Additional criteria:
         - [ ] Criterion 1
         - [ ] Criterion 2
-        - [ ] Tests written and passing
-        - [ ] Documentation updated
-
-  - type: input
-    id: design
-    attributes:
-      label: Design Link
-      description: Link to Figma designs or mockups (if applicable)
-      placeholder: 🎨 https://figma.com/...
-
-  - type: textarea
-    id: technical_considerations
-    attributes:
-      label: Technical Considerations
-      description: Any technical notes, constraints, or implementation guidance
-      placeholder: |
-        - API endpoints to use
-        - State management approach
-        - Performance considerations
-        - Accessibility requirements
-
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: Dependencies & Blockers
-      description: What needs to happen before this can be worked on?
-      placeholder: |
-        - Blocked by: #123
-        - Depends on: Design approval
-        - Requires: API endpoint from backend team
-
-  - type: input
-    id: documentation
-    attributes:
-      label: Related Links
-      description: Links to documentation, specs, or related issues
-      placeholder: https://...
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: Additional Notes
-      description: Screenshots, recordings, or any other relevant information
-      placeholder: Add any additional context, edge cases, or considerations...

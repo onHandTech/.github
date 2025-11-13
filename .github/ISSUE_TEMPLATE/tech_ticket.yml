@@ -9,14 +9,10 @@ body:
     attributes:
       value: |
         ## Technical Ticket
-
-        Use this template for technical improvements, refactoring, tech debt, or infrastructure work.
+        For technical improvements, refactoring, tech debt, or infrastructure work.
 
         **Formatting help**: [GitHub Markdown Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-        > [!IMPORTANT]
-        > Don't forget to add specific labels (e.g., `tech-debt`, `refactor`, `infrastructure`, `onhand-backend`) to categorize this ticket!
-        
   - type: dropdown
     id: tech_type
     attributes:
@@ -34,77 +30,15 @@ body:
         - Documentation
 
   - type: textarea
-    id: problem
+    id: description
     attributes:
-      label: Problem Statement
-      description: What technical problem are we solving?
-      placeholder: |
-        Describe the current state and why it needs improvement.
-        What pain points does this address?
-
-  - type: textarea
-    id: solution
-    attributes:
-      label: Proposed Solution
-      description: How do we plan to solve this?
-      placeholder: |
-        Describe the technical approach.
-        What will be changed/improved?
-
-  - type: textarea
-    id: benefits
-    attributes:
-      label: Benefits & Impact
-      description: Why is this work valuable?
-      placeholder: |
-        - Improved performance (specify metrics if possible)
-        - Better developer experience
-        - Reduced maintenance burden
-        - Enhanced security
-        - Better code quality/maintainability
+      label: What needs to be done?
+      placeholder: Describe the technical work and why it's needed
 
   - type: textarea
     id: acceptance_criteria
     attributes:
       label: Acceptance Criteria
-      description: How do we know when this is done?
       placeholder: |
         - [ ] Criterion 1
         - [ ] Criterion 2
-        - [ ] Tests updated/added
-        - [ ] Documentation updated
-
-  - type: textarea
-    id: technical_notes
-    attributes:
-      label: Technical Notes
-      description: Implementation details, architectural considerations, or constraints
-      placeholder: |
-        - Files/modules to modify
-        - Breaking changes
-        - Migration steps needed
-        - Performance considerations
-
-  - type: textarea
-    id: dependencies
-    attributes:
-      label: Dependencies & Blockers
-      description: What needs to happen before this work can be completed?
-      placeholder: |
-        - Blocked by: #123
-        - Depends on: Feature X being deployed
-        - Requires: Access to Y
-
-  - type: input
-    id: documentation
-    attributes:
-      label: Related Links
-      description: Links to ADRs, RFCs, documentation, or related issues
-      placeholder: https://...
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: Additional Context
-      description: Any other relevant information
-      placeholder: Related discussions, alternative approaches considered, etc.

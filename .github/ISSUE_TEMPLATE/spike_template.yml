@@ -9,87 +9,18 @@ body:
     attributes:
       value: |
         ## Spike Ticket
-
-        Use this template for time-boxed research and investigation tasks.
+        Time-boxed research and investigation.
 
         **Formatting help**: [GitHub Markdown Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 
-        > [!IMPORTANT]
-        > Don't forget to add specific labels (e.g., `onhand-web`, `onhand-native`, `research`) to categorize this ticket!
-
-  - type: dropdown
-    id: affected_repo
-    attributes:
-      label: Affected Repository/Area
-      description: Which repository or area does this spike relate to?
-      options:
-        - onhand-web
-        - onhand-native
-        - onhand-backend
-        - onhand-admin
-        - onhand-toolkit
-        - onhand-fe-shared
-        - Architecture/Infrastructure
-        - Cross-cutting concern
-
   - type: textarea
-    id: context
+    id: overview
     attributes:
-      label: Context & Background
-      description: What's the context for this spike?
-      placeholder: |
-        Provide background information about why this investigation is needed.
-        What problem are we trying to understand better?
-
-  - type: textarea
-    id: objectives
-    attributes:
-      label: Spike Objectives
-      description: What are we looking to learn or discover?
-      placeholder: |
-        - Evaluate technology X for use case Y
-        - Research best practices for Z
-        - Investigate performance bottleneck in...
-        - Assess feasibility of...
-
-  - type: textarea
-    id: questions
-    attributes:
-      label: Key Questions to Answer
-      description: Specific questions this spike should address
-      placeholder: |
-        1. How does X integrate with our current stack?
-        2. What are the performance implications?
-        3. What are the trade-offs?
+      label: What are we investigating?
+      placeholder: Describe what needs research and what questions need answers
 
   - type: input
     id: timebox
     attributes:
       label: Time Box
-      description: Maximum time allocated for this spike
-      placeholder: e.g., 2 days, 1 sprint, 8 hours
-
-  - type: textarea
-    id: deliverables
-    attributes:
-      label: Expected Deliverables
-      description: What should be produced at the end of this spike?
-      placeholder: |
-        - Technical document outlining findings
-        - POC/prototype demonstrating feasibility
-        - Recommendation document with pros/cons
-        - Architecture diagram
-
-  - type: input
-    id: documentation
-    attributes:
-      label: Related Documentation/Links
-      description: Links to relevant docs, ADRs, Figma designs, etc.
-      placeholder: https://...
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: Additional Notes
-      description: Any other relevant information or constraints
-      placeholder: Dependencies, assumptions, constraints...
+      placeholder: e.g., 2 days, 1 sprint
