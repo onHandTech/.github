@@ -16,22 +16,7 @@ body:
 
         > [!IMPORTANT]
         > Don't forget to add specific labels (e.g., `tech-debt`, `refactor`, `infrastructure`, `onhand-backend`) to categorize this ticket!
-
-  - type: dropdown
-    id: affected_repo
-    attributes:
-      label: Affected Repository
-      description: Which repository does this tech work relate to?
-      options:
-        - onhand-web
-        - onhand-native
-        - onhand-backend
-        - onhand-admin
-        - onhand-toolkit
-        - onhand-fe-shared
-        - Infrastructure/DevOps
-        - Multiple repositories
-
+        
   - type: dropdown
     id: tech_type
     attributes:
