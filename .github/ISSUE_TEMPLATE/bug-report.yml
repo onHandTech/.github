@@ -9,12 +9,7 @@ body:
       value: |
         ## Bug Report
 
-        Please provide as much detail as possible to help us understand and reproduce the issue.
-
         **Formatting help**: [GitHub Markdown Guide](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
-
-        > [!IMPORTANT]
-        > Don't forget to add specific labels (e.g., `onhand-web`, `onhand-native`, `onhand-backend`) to categorize this ticket!
 
   - type: dropdown
     id: priority
@@ -27,73 +22,17 @@ body:
         - P3 - Medium (minor issue)
         - P4 - Low (cosmetic or edge case)
 
-  - type: dropdown
-    id: affected_repo
-    attributes:
-      label: Affected Repository
-      description: Which repository is affected?
-      options:
-        - onhand-web
-        - onhand-native
-        - onhand-backend
-        - onhand-admin
-        - onhand-toolkit
-        - onhand-fe-shared
-        - Other/Multiple
-
   - type: textarea
     id: description
     attributes:
-      label: Bug Description
-      description: Clear description of what the bug is
-      placeholder: Describe the issue you're experiencing...
+      label: What's the bug?
+      placeholder: Describe the issue and what you expected to happen
 
   - type: textarea
     id: reproduction
     attributes:
-      label: Reproduction Steps
-      description: Step-by-step instructions to reproduce the issue
+      label: How to reproduce
       placeholder: |
         1. Go to '...'
         2. Click on '...'
-        3. Scroll down to '...'
-        4. See error
-
-  - type: textarea
-    id: expected
-    attributes:
-      label: Expected Behavior
-      description: What you expected to happen
-      placeholder: The application should...
-
-  - type: textarea
-    id: actual
-    attributes:
-      label: Actual Behavior
-      description: What actually happened (include error messages, screenshots, or logs)
-      placeholder: Instead, this happened...
-
-  - type: textarea
-    id: environment
-    attributes:
-      label: Environment Details
-      description: OS, Browser/Device, App version, etc.
-      placeholder: |
-        - OS: [e.g., iOS 17.1, Ubuntu 22.04, Windows 11]
-        - Browser/Device: [e.g., Chrome 120, Safari, iPhone 15]
-        - App/Package version: [e.g., 2.1.0]
-        - Environment: [e.g., dev, stage, production]
-
-  - type: input
-    id: documentation
-    attributes:
-      label: Related Links
-      description: Links to documentation, Figma designs, logs, or related issues
-      placeholder: https://...
-
-  - type: textarea
-    id: notes
-    attributes:
-      label: Additional Context
-      description: Any other relevant information, screenshots, or recordings
-      placeholder: Add any additional context here...
+        3. See error
