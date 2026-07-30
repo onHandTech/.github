@@ -49,11 +49,11 @@ jobs:
             const text = [
               `*${pr.title}*`,
               '',
-              `Raised by: @${pr.user.login}`,
-              `Files changed: ${sizeEmoji} ${n}`,
-              `Lines: +${pr.additions} -${pr.deletions}`,
+              `*Raised by:* @${pr.user.login}`,
+              `*Files changed:* ${sizeEmoji} ${n}`,
+              `*Lines:* +${pr.additions} -${pr.deletions}`,
               '',
-              `Link: ${pr.html_url}`,
+              `*Link: <${pr.html_url}>*`,
             ].join('\n')
 
             const slack = async (method, body) => {
