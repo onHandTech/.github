@@ -1,0 +1,99 @@
+name: Slack PR notify (reusable)
+on:
+  workflow_call:
+    inputs:
+      channel:
+        description: Slack channel ID to post into (e.g. C0XXXXXXX)
+        required: true
+        type: string
+concurrency:
+  group: slack-pr-${{ github.event.pull_request.number }}
+  cancel-in-progress: false
+jobs:
+  notify-slack:
+    if: ${{ !github.event.pull_request.draft && github.event.pull_request.head.repo.full_name == github.repository }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Post or update Slack message
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request
+            const action = context.payload.action
+            const titleChanged = !!(context.payload.changes && context.payload.changes.title)
+            const MARKER = '<!-- slack-ref '
+
+            // Slack message ref lives in a hidden marker on a PR comment.
+            // PR comments are durable; the Actions cache is size-capped and
+            // evicts small entries.
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              ...context.repo,
+              issue_number: pr.number,
+              per_page: 100,
+            })
+            const markerComment = comments.find(c => c.body && c.body.includes(MARKER))
+            const ref = markerComment
+              ? JSON.parse(markerComment.body.match(/<!-- slack-ref (.*?) -->/)[1])
+              : null
+
+            const n = pr.changed_files
+            let sizeEmoji
+            if (n <= 10) sizeEmoji = '🟢'
+            else if (n <= 30) sizeEmoji = '🟡'
+            else if (n <= 60) sizeEmoji = '🟠'
+            else sizeEmoji = '🔴'
+
+            const text = [
+              `*${pr.title}*`,
+              '',
+              `*Raised by:* @${pr.user.login}`,
+              `*Files changed:* ${sizeEmoji} ${n}`,
+              `*Lines:* +${pr.additions} -${pr.deletions}`,
+              '',
+              `*Link: <${pr.html_url}>*`,
+            ].join('\n')
+
+            const slack = async (method, body) => {
+              const res = await fetch(`https://slack.com/api/${method}`, {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json; charset=utf-8',
+                  Authorization: `Bearer ${{ secrets.SLACK_BOT_TOKEN }}`,
+                },
+                body: JSON.stringify(body),
+              })
+              const data = await res.json()
+              if (!data.ok) throw new Error(`Slack ${method} failed: ${data.error}`)
+              return data
+            }
+
+            if (action === 'edited' || action === 'synchronize') {
+              if (action === 'edited' && !titleChanged) {
+                core.info('Edited without title change, skipping.')
+                return
+              }
+              if (!ref) {
+                core.warning('No Slack message ref on this PR, skipping update.')
+                return
+              }
+              await slack('chat.update', { channel: ref.channel, ts: ref.ts, text })
+              return
+            }
+
+            if (ref) {
+              core.info('Slack message already posted for this PR, skipping.')
+              return
+            }
+
+            const posted = await slack('chat.postMessage', {
+              channel: '${{ inputs.channel }}',
+              text,
+            })
+            await github.rest.issues.createComment({
+              ...context.repo,
+              issue_number: pr.number,
+              body: `📣 Posted to Slack.\n${MARKER}${JSON.stringify({ channel: posted.channel, ts: posted.ts })} -->`,
+            })
