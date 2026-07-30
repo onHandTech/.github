@@ -40,17 +40,31 @@ jobs:
               : null
 
             const n = pr.changed_files
-            let sizeEmoji
-            if (n <= 10) sizeEmoji = '🟢'
-            else if (n <= 30) sizeEmoji = '🟡'
-            else if (n <= 60) sizeEmoji = '🟠'
-            else sizeEmoji = '🔴'
+            let complexity
+            if (n <= 10) complexity = '🟢 Small'
+            else if (n <= 30) complexity = '🟡 Medium'
+            else if (n <= 60) complexity = '🟠 Large'
+            else complexity = '🔴 Very large'
+
+            // Webhook payload carries only the handle; full name needs a lookup.
+            let author = pr.user.login
+            try {
+              const { data: profile } = await github.rest.users.getByUsername({
+                username: pr.user.login,
+              })
+              if (profile.name) author = profile.name
+            } catch (e) {
+              core.warning(`Could not fetch profile for ${pr.user.login}: ${e.message}`)
+            }
 
             const text = [
               `*${pr.title}*`,
               '',
-              `*Raised by:* @${pr.user.login}`,
-              `*Files changed:* ${sizeEmoji} ${n}`,
+              `*Raised by:* <${pr.user.html_url}|${author}>`,
+              '',
+              `*Complexity:* ${complexity}`,
+              '',
+              `*Files changed:* ${n}`,
               `*Lines:* +${pr.additions} -${pr.deletions}`,
               '',
               `*Link: <${pr.html_url}>*`,
