@@ -41,10 +41,10 @@ jobs:
 
             const n = pr.changed_files
             let complexity
-            if (n <= 10) complexity = '🟢 Small'
-            else if (n <= 30) complexity = '🟡 Medium'
-            else if (n <= 60) complexity = '🟠 Large'
-            else complexity = '🔴 Very large'
+            if (n <= 10) complexity = '🟢 Tiny'
+            else if (n <= 30) complexity = '🟡 Small'
+            else if (n <= 60) complexity = '🟠 Medium'
+            else complexity = '🔴 Large'
 
             // Webhook payload carries only the handle; full name needs a lookup.
             let author = pr.user.login
