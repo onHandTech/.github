@@ -84,24 +84,19 @@ jobs:
               return data
             }
 
-            if (action === 'edited' || action === 'synchronize') {
-              if (action === 'edited' && !titleChanged) {
-                core.info('Edited without title change, skipping.')
-                return
-              }
-              if (!ref) {
-                core.warning('No Slack message ref on this PR, skipping update.')
-                return
-              }
-              await slack('chat.update', { channel: ref.channel, ts: ref.ts, text })
+            if (action === 'edited' && !titleChanged) {
+              core.info('Edited without title change, skipping.')
               return
             }
 
             if (ref) {
-              core.info('Slack message already posted for this PR, skipping.')
+              if (action === 'edited' || action === 'synchronize') {
+                await slack('chat.update', { channel: ref.channel, ts: ref.ts, text })
+              } else {
+                core.info('Slack message already posted for this PR, skipping.')
+              }
               return
             }
-
             const posted = await slack('chat.postMessage', {
               channel: '${{ inputs.channel }}',
               text,
